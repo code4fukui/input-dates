@@ -1,5 +1,7 @@
 # input-dates
 
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 A date range selection component.
 
 ## Demo

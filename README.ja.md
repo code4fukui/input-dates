@@ -1,6 +1,6 @@
 # input-dates タグ
 
-日付複数選択コンポーネントです。[サンプルアプリ](https://code4fukui.github.io/input-dates/)で確認できます。
+日付範囲選択コンポーネントです。[サンプルアプリ](https://code4fukui.github.io/input-dates/)で確認できます。
 
 ## デモ
 [サンプルアプリ](https://code4fukui.github.io/input-dates/)で日付の選択と表示ができます。
@@ -12,6 +12,7 @@
 - 特定の日付の選択を制限できる
 
 ## 使い方
+
 HTMLに以下のコードを追加するだけで使えます。
 
 ```html
