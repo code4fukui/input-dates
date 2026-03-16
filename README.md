@@ -31,4 +31,4 @@ inputdates.onchange = () => {
 - Utilizes the [day-es](https://github.com/code4fukui/day-es/) library for date processing and holiday detection.
 
 ## License
-MIT
+MIT License — see [LICENSE](LICENSE).

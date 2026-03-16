@@ -1,6 +1,6 @@
-# input-dates タグ
+# input-dates
 
-日付範囲選択コンポーネントです。[サンプルアプリ](https://code4fukui.github.io/input-dates/)で確認できます。
+日付範囲選択コンポーネントです。
 
 ## デモ
 [サンプルアプリ](https://code4fukui.github.io/input-dates/)で日付の選択と表示ができます。
@@ -26,6 +26,9 @@ inputdates.onchange = () => {
 };
 </script>
 ```
+
+## データ・API
+- [day-es](https://github.com/code4fukui/day-es/)ライブラリを使用して日付処理と祝日検出を行っています。
 
 ## ライセンス
 MIT License
