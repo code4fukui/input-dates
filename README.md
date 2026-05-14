@@ -1,26 +1,89 @@
-# input-dates tag
+# input-dates
 
-- 日付複数選択コンポーネント
-- [サンプルアプリ](https://code4fukui.github.io/input-dates/)
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
 
-<img src=https://user-images.githubusercontent.com/1715217/122636184-cd656680-d122-11eb-8ca3-a4808ca5398a.png width=300>
+A lightweight, dependency-free web component for selecting single or multiple dates from a calendar view.
 
-```
+## Demo
+
+[Try the live demo](https://code4fukui.github.io/input-dates/)
+
+<img src="https://user-images.githubusercontent.com/1715217/122636184-cd656680-d122-11eb-8ca3-a4808ca5398a.png" width="300" alt="Screenshot of the input-dates calendar component">
+
+## Features
+
+- **Multi-Date Selection**: Select multiple individual dates.
+- **Single-Date Mode**: Restrict selection to a single date.
+- **Date Highlighting**: Automatically highlights weekends and Japanese holidays.
+- **Availability Control**: Programmatically define which dates are selectable.
+- **Zero Dependencies**: A standalone web component imported directly as an ES module.
+- **Simple API**: Interact with the component using standard properties and events.
+
+## Usage
+
+Add the script tag to your HTML file. No build step or installation is required.
+
+```html
 <script type="module" src="https://code4fukui.github.io/input-dates/input-dates.js"></script>
-<input-dates id="inputdates"></input-dates>
+
+<input-dates id="my-calendar"></input-dates>
 
 <script type="module">
-inputdates.value = "2021-06-19,2021-06-18";
-inputdates.onchange = () => {
-  console.log(inputdates.value);
-};
+  const calendar = document.getElementById('my-calendar');
+
+  // Set initial selected dates
+  calendar.value = "2021-06-19,2021-06-18";
+
+  // Listen for changes
+  calendar.onchange = () => {
+    console.log('Selected dates:', calendar.value);
+  };
 </script>
 ```
 
-## reference
+## API Reference
 
-- ベースレジストリ、[行政基本情報データ連携モデル 日付及び時刻](https://github.com/code4fukui/BaseRegistry/blob/main/%E8%A1%8C%E6%94%BF%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1%E3%83%87%E3%83%BC%E3%82%BF%E9%80%A3%E6%90%BA%E3%83%A2%E3%83%87%E3%83%AB-%E6%97%A5%E4%BB%98%E5%8F%8A%E3%81%B3%E6%99%82%E5%88%BB.md)
+### Attributes
 
-## lib
+- `single`
+  - If this boolean attribute is present, the component will operate in single-date selection mode.
+  - **Example**: `<input-dates single></input-dates>`
 
-- [day-es](https://github.com/code4fukui/day-es/)
+### Properties
+
+- `.value`
+  - **Type**: `String`
+  - **Description**: A getter/setter for the selected dates. The value is a comma-separated string of dates in `YYYY-MM-DD` format.
+  - **Example**: `calendar.value = "2023-10-26,2023-10-31";`
+
+### Methods
+
+- `.setAvailable(dates)`
+  - **Description**: Restricts the set of dates that the user can select. All other dates will be disabled.
+  - **Parameters**:
+    - `dates`: `String` | `Array<String|Day>` - A comma-separated string of dates, or an array of date strings or `Day` objects from the `day-es` library.
+  - **Example**:
+    ```javascript
+    // Using a comma-separated string
+    calendar.setAvailable("2023-12-24,2023-12-25,2023-12-31");
+
+    // Using an array of strings
+    calendar.setAvailable(["2024-01-01", "2024-01-02"]);
+    ```
+
+- `.clear()`
+  - **Description**: Deselects all currently selected dates.
+
+### Events
+
+- `onchange`
+  - **Description**: A handler that fires whenever the selection is changed by the user.
+  - **Example**: `calendar.onchange = () => { /* ... */ };`
+
+## Dependencies
+
+- This component utilizes the [day-es](https://github.com/code4fukui/day-es/) library for date calculations and Japanese holiday detection. It is loaded dynamically and does not need to be installed separately.
+
+## License
+
+MIT License
